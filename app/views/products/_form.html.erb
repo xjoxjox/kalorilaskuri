@@ -40,6 +40,10 @@
     <%= f.number_field :weight %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <% if edit %>
+      <%= f.submit 'Muokkaa' %>
+    <% else %>
+      <%= f.submit 'Luo uusi tuote' %>
+    <% end %>
   </div>
 <% end %>

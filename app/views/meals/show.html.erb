@@ -1,24 +1,16 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>User:</strong>
-  <%= @meal.user_id %>
-</p>
-
-<p>
-  <strong>Name:</strong>
+  <strong>Nimi:</strong>
   <%= @meal.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Kuvaus:</strong>
   <%= @meal.description %>
 </p>
 
 <p>
-  <strong>Private:</strong>
+  <strong>Julkinen:</strong>
   <%= @meal.private %>
 </p>
 
-<%= link_to 'Edit', edit_meal_path(@meal) %> |
-<%= link_to 'Back', meals_path %>
+<%= link_to 'Muokkaa', edit_meal_path(@meal) %>

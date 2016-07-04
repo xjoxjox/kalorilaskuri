@@ -24,10 +24,14 @@
     <%= f.text_field :description %>
   </div>
   <div class="field">
-    <%= f.label :private %><br>
+    <%= f.label :private, 'Tee ateriasta julkinen' %><br>
     <%= f.check_box :private %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <% if edit %>
+      <%= f.submit 'Muokkaa' %>
+    <% else %>
+      <%= f.submit 'Luo ateria' %>
+    <% end %>
   </div>
 <% end %>

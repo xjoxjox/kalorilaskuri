@@ -1,39 +1,36 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Name:</strong>
+  <strong>Nimi:</strong>
   <%= @product.name %>
 </p>
 
 <p>
-  <strong>Producer:</strong>
+  <strong>Valmistaja:</strong>
   <%= @product.producer %>
 </p>
 
 <p>
-  <strong>Fat:</strong>
+  <strong>Rasvaa / 100g:</strong>
   <%= @product.fat %>
 </p>
 
 <p>
-  <strong>Carbohydrate:</strong>
+  <strong>Hiilihydraatteja / 100g:</strong>
   <%= @product.carbohydrate %>
 </p>
 
 <p>
-  <strong>Protein:</strong>
+  <strong>Proteiinia / 100g:</strong>
   <%= @product.protein %>
 </p>
 
 <p>
-  <strong>Sugar:</strong>
+  <strong>Sokeria / 100g:</strong>
   <%= @product.sugar %>
 </p>
 
 <p>
-  <strong>Weight:</strong>
+  <strong>Paino:</strong>
   <%= @product.weight %>
 </p>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= link_to 'Muokkaa', edit_product_path(@product) %>
