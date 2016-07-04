@@ -14,10 +14,11 @@ fi:
       product:
         name: 'Nimi'
         producer: 'Valmistaja'
-        fat: 'rasvaa/100g'
-        carbohydrate: 'hiilihydraatteja/100g'
-        protein: 'proteiinia/100g'
-        sugar: 'sokeria/100g'
+        calories: 'Kaloreita/100g'
+        fat: 'Rasvaa/100g'
+        carbohydrate: 'Hiilihydraatteja/100g'
+        protein: 'Proteiinia/100g'
+        sugar: 'Sokeria/100g'
         private: 'Julkinen'
         weight: 'Paino'
       meal:
