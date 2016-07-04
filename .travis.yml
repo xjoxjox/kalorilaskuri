@@ -10,6 +10,9 @@ script:
  - bundle exec rake db:test:prepare
  - bundle exec rspec -fd spec/
 
+gemfile:
+ - "/Gemfile"
+
 after_success:
  - CI=true TRAVIS=true coveralls --verbose
 
