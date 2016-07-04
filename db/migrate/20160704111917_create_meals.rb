@@ -1,7 +1,7 @@
 class CreateMeals < ActiveRecord::Migration
   def change
     create_table :meals do |t|
-      t.referer :user_id
+      t.references :user, index: true, foreign_key: true
       t.string :name
       t.string :description
       t.boolean :private

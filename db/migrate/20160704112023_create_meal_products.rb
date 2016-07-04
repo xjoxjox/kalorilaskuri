@@ -1,8 +1,8 @@
 class CreateMealProducts < ActiveRecord::Migration
   def change
     create_table :meal_products do |t|
-      t.referer :meal_id
-      t.referer :product_id
+      t.references :meal, index: true, foreign_key: true
+      t.references :product, index: true, foreign_key: true
 
       t.timestamps null: false
     end
