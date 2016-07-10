@@ -1,0 +1,182 @@
+// import the CSS framework
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+//fontti
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+//logo
+@import url(https://fonts.googleapis.com/css?family=Amatic+SC);
+
+// make all images responsive by default
+img {
+  @extend .img-responsive;
+  margin: 0 auto;
+}
+// override for the 'Home' navigation link
+.navbar-brand {
+  font-size: inherit;
+}
+
+// THESE ARE EXAMPLES YOU CAN MODIFY
+// create your own classes
+// to make views framework-neutral
+.column {
+  @extend .col-md-6;
+  @extend .text-center;
+}
+.form {
+  @extend .col-md-6;
+}
+.form-centered {
+  @extend .col-md-6;
+  @extend .text-center;
+}
+.submit {
+  @extend .btn;
+  @extend .btn-primary;
+  @extend .btn-lg;
+}
+// apply styles to HTML elements
+// to make views framework-neutral
+main {
+  @extend .container;
+  //background-color: #f2efe8;
+  padding-bottom: 115px;
+  width: 100%;
+  margin-top: 51px; // accommodate the navbar
+}
+section {
+  @extend .row;
+  margin-top: 20px;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  background-color: #559A7F;
+  color: #559A7F;
+}
+
+body {
+  background-color: #EBFCF5;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.navbar-default {
+  background-color: #559A7F;
+  border-color: #000;
+}
+
+.navbar .nav > li > a {
+  color: #559A7F;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.footer {
+  background-color: #559A7F;
+  border-color: #000;
+  color: #559A7F;
+  bottom:0;
+  margin-top: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width:100%;
+  position:absolute;
+  height:100px;
+  font-family: 'Open Sans', sans-serif;
+
+  //background: linear-gradient(to bottom, #e6e6e6 0%,#ffffff 100%);
+  //border-top: 1px solid #eaeaea;
+  //overflow: auto;
+}
+
+footer a {
+  color: #000;
+  align: center;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer ul li {
+  margin-top:5px;
+  float: none;
+  text-align:center;
+}
+
+footer p {
+  text-align: center;
+}
+
+.footer:hover {
+  color: #3374FF;
+}
+
+// Lomakkeiden virheilmoitukset
+#error_explanation {
+  @extend .alert;
+  @extend .alert-danger;
+  h2 {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  ul {
+    margin-top: 2em;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+}
+
+// Devisen lomakkeet
+
+//hakulomake
+
+// numerokenttä (size ei toimi)
+input[type="number"] {
+  width:50px;
+}
+
+.shared-links {
+  padding: 15px;
+  margin: -16px auto 10px;
+}
+
+.links {
+  color: #3374FF;
+  text-decoration: underline;
+}
+
+.lomake,
+.form-signin,
+.form-signup,
+.form-edit-registration {
+  //max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.account-wall {
+  margin-top: 20px;
+  padding: 40px 0px 20px 0px;
+  background-color: #D1F7E8;
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.account-wall {
+  hr {
+    margin: -16px auto 10px;
+    width: 100%;
+  }
+}
+
+.padding {
+  padding:15px;
+}

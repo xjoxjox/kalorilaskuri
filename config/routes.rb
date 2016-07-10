@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   resources :meals
   resources :products
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations",
+                                      :omniauth_callbacks => "omniauth_callbacks" }
 
-  root "sessions#new"
+  root "users#index"
 
   resources :users, only: [:show, :index]
 
