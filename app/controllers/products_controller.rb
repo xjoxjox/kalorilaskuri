@@ -11,15 +11,19 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @product = Product.find(params[:id])
   end
 
   # GET /products/new
   def new
     @product = Product.new
+    @categories = CategoryForProduct.all
   end
 
   # GET /products/1/edit
   def edit
+    @product = Product.find(params[:id])
+    @categories = CategoryForProduct.all
   end
 
   # POST /products
@@ -29,7 +33,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.html { redirect_to @product, notice: 'Tuote luotiin onnistuneesti.' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -43,7 +47,7 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        format.html { redirect_to @product, notice: 'Tuotteen tiedot päivitetty onnistuneesti.' }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit }
@@ -57,7 +61,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to products_url, notice: 'Tuote poistettu onnistuneesti.' }
       format.json { head :no_content }
     end
   end
@@ -70,6 +74,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :producer, :fat, :carbohydrate, :protein, :sugar, :weight)
+      params.require(:product).permit(:name, :producer, :fat, :carbohydrate, :protein, :sugar, :weight, category_for_product_ids: [])
     end
 end

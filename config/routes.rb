@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations",
                                       :omniauth_callbacks => "omniauth_callbacks" }
 
-  root "users#index"
+  root "products#index"
 
   resources :users, only: [:show, :index]
 

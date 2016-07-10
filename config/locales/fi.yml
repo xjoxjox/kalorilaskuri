@@ -24,6 +24,7 @@ fi:
         sugar: 'Sokeria/100g'
         private: 'Julkinen'
         weight: 'Paino'
+        category_for_product: 'Kategoria'
       meal:
         name: 'Nimi'
         description: 'Kuvaus'
