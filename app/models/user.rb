@@ -1,10 +1,14 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable, :lockable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   has_many :meals
+
+  validates :height, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 300}
+  validates :weight, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 500}
+  validates :fat_percentage, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 100}
 
   def self.find_for_oauth(auth)
     if !where(email: auth.info.email).empty?
