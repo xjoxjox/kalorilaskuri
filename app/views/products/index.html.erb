@@ -1,39 +1,35 @@
-<h1>Tuotteet</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1 class="text-center login-title"> Tuotteet </h1>
+    <div class="account-wall">
+      <%= link_to 'Uusi tuote', new_product_path, class:"submit-button" %><br><br>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th class="col-md-2">Nimi</th>
+          <th class="col-md-2">Valmistaja</th>
+          <th class="col-md-2">Ravintosisältö / 100g</th>
+          <th class="col-md-2">Paino</th>
+        </tr>
+        </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nimi</th>
-      <th>Valmistaja</th>
-      <th>Kaloreita</th>
-      <th>Rasvaa / 100g</th>
-      <th>Hiilihydraatteja / 100g</th>
-      <th>Proteiinia / 100g</th>
-      <th>Sokeria / 100g</th>
-      <th>Paino</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.producer %></td>
-        <td><%= product.calories %></td>
-        <td><%= product.fat %></td>
-        <td><%= product.carbohydrate %></td>
-        <td><%= product.protein %></td>
-        <td><%= product.sugar %></td>
-        <td><%= product.weight %></td>
-        <td><%= link_to 'Näytä', product %></td>
-        <td><%= link_to 'Muokkaa', edit_product_path(product) %></td>
-        <td><%= link_to 'Poista', product, method: :delete, data: { confirm: 'Oletko varma?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'Uusi tuote', new_product_path %>
+        <tbody>
+        <% @products.each do |product| %>
+            <tr>
+              <td><%= link_to product.name, product_path(product) %></td>
+              <td><%= product.producer %></td>
+              <td>
+                <%= product.calories %> kcal<br>
+                <%= product.fat %>g rasvaa<br>
+                <%= product.carbohydrate %>g HH:a<br>
+                <%= product.protein %>g proteiinia<br>
+                <%= product.sugar %>g sokeria<br>
+              </td>
+              <td><%= product.weight %>g</td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

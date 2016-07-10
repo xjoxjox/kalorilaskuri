@@ -1,41 +1,46 @@
-<p>
-  <strong>Nimi:</strong>
-  <%= @product.name %>
-</p>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+        <h1 class="text-center login-title"><%= @product.name %></h1>
+    <div class="account-wall">
 
-<p>
-  <strong>Valmistaja:</strong>
-  <%= @product.producer %>
-</p>
+      <p>
+        <strong>Valmistaja:</strong>
+        <%= @product.producer %>
+      </p>
 
-<p>
-  <strong>Kaloreita:</strong>
-  <%= @product.calories %>
-</p>
+      <p>
+        <strong>Kilokaloreita:</strong>
+        <%= @product.calories %>
+      </p>
 
-<p>
-  <strong>Rasvaa / 100g:</strong>
-  <%= @product.fat %>
-</p>
+      <p>
+        <strong>Rasvaa / 100g:</strong>
+        <%= @product.fat %>
+      </p>
 
-<p>
-  <strong>Hiilihydraatteja / 100g:</strong>
-  <%= @product.carbohydrate %>
-</p>
+      <p>
+        <strong>Hiilihydraatteja / 100g:</strong>
+        <%= @product.carbohydrate %>
+      </p>
 
-<p>
-  <strong>Proteiinia / 100g:</strong>
-  <%= @product.protein %>
-</p>
+      <p>
+        <strong>Proteiinia / 100g:</strong>
+        <%= @product.protein %>
+      </p>
 
-<p>
-  <strong>Sokeria / 100g:</strong>
-  <%= @product.sugar %>
-</p>
+      <p>
+        <strong>Sokeria / 100g:</strong>
+        <%= @product.sugar %>
+      </p>
 
-<p>
-  <strong>Paino:</strong>
-  <%= @product.weight %>
-</p>
+      <p>
+        <strong>Paino:</strong>
+        <%= @product.weight %>
+      </p>
 
-<%= link_to 'Muokkaa', edit_product_path(@product) %>
+      <%= link_to 'Muokkaa', edit_product_path(@product), class: "submit-button" if user_signed_in? %>
+      <!--<%= link_to 'Poista', product, method: :delete, data: { confirm: 'Oletko varma?' }, class: "btn btn-danger" %>-->
+
+    </div>
+  </div>
+</div>

@@ -1,16 +1,20 @@
-<p>
-  <strong>Nimi:</strong>
-  <%= @meal.name %>
-</p>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1 class="text-center login-title"><%= @meal.name %></h1>
 
-<p>
-  <strong>Kuvaus:</strong>
-  <%= @meal.description %>
-</p>
+    <div class="account-wall">
 
-<p>
-  <strong>Julkinen:</strong>
-  <%= @meal.private %>
-</p>
+      <p>
+        <strong>Kuvaus:</strong>
+        <%= @meal.description %>
+      </p>
 
-<%= link_to 'Muokkaa', edit_meal_path(@meal) %>
+      <p>
+        <%= @meal.private %>
+      </p>
+
+      <%= link_to 'Muokkaa', edit_meal_path(@meal) if @meal.user_id == current_user.id %>
+      <%= link_to 'Poista', @meal, method: :delete, data: { confirm: 'Oletko varma?' }, class: "btn btn-danger" if @meal.user_id == current_user.id %>
+    </div>
+  </div>
+</div>

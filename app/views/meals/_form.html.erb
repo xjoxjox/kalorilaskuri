@@ -1,37 +1,51 @@
-<%= form_for(@meal) do |f| %>
-  <% if @meal.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
-
-      <ul>
-      <% @meal.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :private, 'Tee ateriasta julkinen' %><br>
-    <%= f.check_box :private %>
-  </div>
-  <div class="actions">
-    <% if edit %>
-      <%= f.submit 'Muokkaa' %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <% if @meal %>
+        <h1 class="text-center login-title">Muokkaa reseptiä <%= @product.name %></h1>
     <% else %>
-      <%= f.submit 'Luo ateria' %>
+        <h1 class="text-center login-title">Uusi resepti</h1>
     <% end %>
+    <div class="account-wall">
+      <% if user_signed_in? %>
+          <%= form_for(@meal) do |f| %>
+              <% if @meal.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(@meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
+
+                    <ul>
+                      <% @meal.errors.full_messages.each do |message| %>
+                          <li><%= message %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+              <% end %>
+
+              <div class="field">
+                <%= f.hidden_field :user_id, :value => current_user.id %><br>
+              </div>
+              <div class="field">
+                <%= f.label :name %><br>
+                <%= f.text_field :name %>
+              </div>
+              <div class="field">
+                <%= f.label :description %><br>
+                <%= f.text_field :description %>
+              </div>
+              <div class="field">
+                <%= f.label :private, 'Tee ateriasta julkinen' %><br>
+                <%= f.check_box :private %>
+              </div>
+              <div class="actions">
+                <% if edit %>
+                    <%= f.submit 'Muokkaa' %>
+                <% else %>
+                    <%= f.submit 'Luo ateria' %>
+                <% end %>
+              </div>
+          <% end %>
+      <% else %>
+          <p>Sinun täytyy <%= link_to 'kirjautua sisään', user_session_path %> tai <%= link_to 'rekisteröityä', new_user_registration_path %>, jotta voit lisätä tai muokata reseptejä.</p>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>

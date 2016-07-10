@@ -1,53 +1,71 @@
-<%= form_for(@product) do |f| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
-      <ul>
-      <% @product.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :producer %><br>
-    <%= f.text_field :producer %>
-  </div>
-  <div class="field">
-    <%= f.label :calories %><br>
-    <%= f.text_field :calories %>
-  </div>
-  <div class="field">
-    <%= f.label :fat %><br>
-    <%= f.text_field :fat %>
-  </div>
-  <div class="field">
-    <%= f.label :carbohydrate %><br>
-    <%= f.text_field :carbohydrate %>
-  </div>
-  <div class="field">
-    <%= f.label :protein %><br>
-    <%= f.text_field :protein %>
-  </div>
-  <div class="field">
-    <%= f.label :sugar %><br>
-    <%= f.text_field :sugar %>
-  </div>
-  <div class="field">
-    <%= f.label :weight %><br>
-    <%= f.number_field :weight %>
-  </div>
-  <div class="actions">
-    <% if edit %>
-      <%= f.submit 'Muokkaa' %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <% if @product %>
+        <h1 class="text-center login-title">Uuden tuotteen lisääminen</h1>
     <% else %>
-      <%= f.submit 'Luo uusi tuote' %>
+        <h1 class="text-center login-title">Tuotteen muokkaaminen</h1>
     <% end %>
+    <div class="account-wall">
+
+      <% if user_signed_in? %>
+          <%= form_for(@product) do |f| %>
+              <% if @product.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+                    <ul>
+                      <% @product.errors.full_messages.each do |message| %>
+                          <li><%= message %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+              <% end %>
+
+              <div class="field">
+                <%= f.label :name %><br>
+                <%= f.text_field :name %>
+              </div>
+              <div class="field">
+                <%= f.label :producer %><br>
+                <%= f.text_field :producer %>
+              </div>
+              <div class="field">
+                <%= f.label :calories %><br>
+                <%= f.number_field :calories, max: 10000, min: 0 %>
+              </div>
+              <div class="field">
+                <%= f.label :fat %><br>
+                <%= f.number_field :fat, max: 100, min: 0, :step => 0.1 %>
+              </div>
+              <div class="field">
+                <%= f.label :carbohydrate %><br>
+                <%= f.number_field :carbohydrate, max: 100, min: 0, :step => 0.1 %>
+              </div>
+              <div class="field">
+                <%= f.label :protein %><br>
+                <%= f.number_field :protein, max: 100, min: 0, :step => 0.1 %>
+              </div>
+              <div class="field">
+                <%= f.label :sugar %><br>
+                <%= f.number_field :sugar, max: 100, min: 0, :step => 0.1 %>
+              </div>
+              <div class="field">
+                <%= f.label :weight %><br>
+                <%= f.number_field :weight, max: 5000, min: 0 %>
+              </div>
+              <br>
+              <br>
+              <div class="actions">
+                <% if edit %>
+                    <%= f.submit 'Muokkaa', class:"submit-button" %>
+                <% else %>
+                    <%= f.submit 'Luo uusi tuote', class:"submit-button" %>
+                <% end %>
+              </div>
+          <% end %>
+      <% else %>
+          <p>Sinun täytyy <%= link_to 'kirjautua sisään', user_session_path %> tai <%= link_to 'rekisteröityä', new_user_registration_path %>, jotta voit lisätä tai muokata tuotteita.</p>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>
