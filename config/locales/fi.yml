@@ -14,6 +14,7 @@ fi:
         weight: 'Paino'
         height: 'Pituus'
         fat_percentage: 'Rasvaprosentti'
+        username: 'Käyttäjätunnus'
       product:
         name: 'Nimi'
         producer: 'Valmistaja'
@@ -25,6 +26,7 @@ fi:
         private: 'Julkinen'
         weight: 'Paino'
         category_for_product: 'Kategoria'
+        bar_code: 'EAN-koodi'
       meal:
         name: 'Nimi'
         description: 'Kuvaus'

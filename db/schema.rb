@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160710170002) do
+ActiveRecord::Schema.define(version: 20160716172237) do
 
   create_table "category_for_products", force: :cascade do |t|
     t.string   "name"
@@ -58,6 +58,21 @@ ActiveRecord::Schema.define(version: 20160710170002) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "calories"
+    t.integer  "bar_code"
+  end
+
+  create_table "user_fat_persentage_developments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "fat_persentage"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "user_weight_developments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.float    "weight"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,6 +98,7 @@ ActiveRecord::Schema.define(version: 20160710170002) do
     t.integer  "failed_attempts",        default: 0,  null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
+    t.string   "username"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1 class="text-center login-title"><%= @user.username %>></h1>
+    <div class="account-wall">
+
+      <p>
+        <strong>Sähköpostiosoite:</strong><br>
+        <%= @user.email %>
+      </p>
+
+      <p>
+        <strong>Paino:</strong><br>
+        <%= @user.weight %>
+      </p>
+
+      <p>
+        <strong>Pituus</strong><br>
+        <%= @user.height %>
+      </p>
+
+      <p>
+        <strong>BMI:</strong><br>
+        <%= @user.bmi %>
+      </p>
+
+      <p>
+        <strong>Rasvaprosentti:</strong><br>
+        <%= @user.fat_percentage %>
+      </p>
+
+      <%= link_to 'Muokkaa tietojasi', edit_user_registration(@user), class: "submit-button" if user_signed_in? && current_user == @user %>
+
+    </div>
+  </div>
+</div>

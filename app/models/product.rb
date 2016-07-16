@@ -6,5 +6,7 @@ class Product < ActiveRecord::Base
   validates :fat, :sugar, :carbohydrate, :protein, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }
   validates :weight, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 5000 }
   validates :name, length: { in: 1..30 }
+  validates :bar_code, uniqueness: :true, length: { in: 13..13 }, numericality: { greater_than_or_equal_to: 0 },
+            :if => lambda {|attr| attr.present?}
 
 end

@@ -142,6 +142,12 @@ input[type="number"] {
   width:100px;
 }
 
+.bar-code-field {
+  input[type="number"] {
+    width:300px;
+  }
+}
+
 .shared-links {
   padding: 15px;
   margin: -16px auto 10px;

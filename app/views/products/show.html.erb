@@ -38,6 +38,13 @@
         <%= @product.weight %>
       </p>
 
+      <% unless @product.bar_code.nil? %>
+      <p>
+        <strong>EAN-koodi:</strong>
+        <%= @product.bar_code %>
+      </p>
+      <% end %>
+
       <%= link_to 'Muokkaa', edit_product_path(@product), class: "submit-button" if user_signed_in? %>
       <!--<%= link_to 'Poista', product, method: :delete, data: { confirm: 'Oletko varma?' }, class: "btn btn-danger" %>-->
 
